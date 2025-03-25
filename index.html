@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>abdelrahman fikry website</title>
+    <link rel="stylesheet" href="css.css">
+    
+
+</head>
+<body>
+   
+    <div class="container">
+        <!-- شاشة البداية -->
+        <div id="main-menu" class="screen active">
+            <div class="card">
+                <h1>لعبة الأسئلة المتكاملة</h1>
+                <p>اختبر معلوماتك في مختلف المجالات!</p>
+                <button id="start-game">بدء اللعبة</button>
+                <button id="settings-btn">الإعدادات</button>
+                <button id="leaderboard-btn">قائمة المتصدرين</button>
+            </div>
+        </div>
+        <h1>"I’ve been up all night, drowning in coffee, pushing through exhaustion just to get this website done now i can sleep like ababy 😴😴🥱🥱"</h1>
+        <h1>Contact me: <a href="https://wa.me/qr/6LXHRPBGEJSFD1",>Whatsapp  && </a><a href="mailto:abdelrahmanfikry1@gmail.com",>Email</a></h1>
+        <!-- شاشة الإعدادات -->
+        <div id="settings-screen" class="screen">
+            <div class="card">
+                <h1>الإعدادات</h1>
+                
+                <h3>تغيير المظهر</h3>
+                <div class="theme-selector">
+                    <div class="theme-option selected" data-theme="default"></div>
+                    <div class="theme-option" data-theme="purple"></div>
+                    <div class="theme-option" data-theme="blue"></div>
+                    <div class="theme-option" data-theme="orange"></div>
+                </div>
+                
+                <button id="settings-back-btn" class="back-btn">رجوع</button>
+            </div>
+        </div>
+
+        <!-- شاشة الأسئلة -->
+        <div id="quiz-screen" class="screen">
+            <div class="stats">
+                <div class="stat-box">
+                    <div>النقاط</div>
+                    <div id="score">0</div>
+                </div>
+                <div class="stat-box">
+                    <div>السؤال</div>
+                    <div id="question-count">1/10</div>
+                </div>
+                <div class="stat-box">
+                    <div>التتابع</div>
+                    <div id="streak">0</div>
+                </div>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            
+            <div class="question-container">
+                <h2 id="question-text">جاري تحميل السؤال...</h2>
+                <div class="answers-container" id="answers-container">
+                    <!-- الإجابات تظهر هنا -->
+                </div>
+            </div>
+            
+            <div class="result-message" id="result-message"></div>
+            
+            <button id="next-btn" disabled>التالي</button>
+            <button id="quit-btn">خروج</button>
+        </div>
+
+        <!-- شاشة النتائج -->
+        <div id="results-screen" class="screen">
+            <div class="card">
+                <h1>انتهت اللعبة!</h1>
+                
+                <div class="stats">
+                    <div class="stat-box">
+                        <div>النقاط النهائية</div>
+                        <div id="final-score">0</div>
+                    </div>
+                    <div class="stat-box">
+                        <div>الإجابات الصحيحة</div>
+                        <div id="correct-answers">0/10</div>
+                    </div>
+                </div>
+                
+                <div class="progress-container">
+                    <div class="progress-bar" id="final-progress"></div>
+                </div>
+                
+                <p id="performance-comment">جاري تحميل النتائج...</p>
+                
+                <button id="save-score-btn">حفظ النتيجة</button>
+                <button id="play-again-btn">العب مرة أخرى</button>
+                <button id="results-back-btn" class="back-btn">القائمة الرئيسية</button>
+            </div>
+        </div>
+
+        <!-- شاشة المتصدرين -->
+        <div id="leaderboard-screen" class="screen">
+            <div class="card">
+                <h1>قائمة المتصدرين</h1>
+                
+                <div id="leaderboard-list">
+                    <!-- بيانات المتصدرين تظهر هنا -->
+                </div>
+                
+                <div id="delete-section">
+                    <input type="password" id="delete-password" placeholder="أدخل كلمة المرور (00000)">
+                    <button id="confirm-delete-btn">تأكيد الحذف</button>
+                    <button id="cancel-delete-btn">إلغاء</button>
+                </div>
+                
+                <div class="leaderboard-actions">
+                    <button id="delete-score-btn">حذف نتيجة</button>
+                    <button id="leaderboard-back-btn" class="back-btn">رجوع</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- زر التحكم في الصوت -->
+    <div class="sound-toggle" id="sound-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+        </svg>
+    </div>
+
+    <!-- عناصر الصوت -->
+    <audio id="correct-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-correct-answer-tone-2870.mp3" preload="auto"></audio>
+    <audio id="wrong-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-wrong-answer-fail-notification-946.mp3" preload="auto"></audio>
+    <audio id="background-music" loop preload="auto">
+        <source src="https://assets.mixkit.co/music/preview/mixkit-game-show-suspense-waiting-668.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+       
+</body>
+</html>
